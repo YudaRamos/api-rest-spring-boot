@@ -23,7 +23,39 @@ excepto si este es un proyecto de un estudiante.
 */
 package me.parzibyte.api;
 
-import org.springframework.data.repository.CrudRepository;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public interface AlumnosRepository extends CrudRepository<Alumno, Long> {
+@Entity
+public class Producto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long id;
+
+    public String nombre;
+
+    public Producto() {
+    }
+
+    public Producto(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }
