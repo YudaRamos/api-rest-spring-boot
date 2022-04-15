@@ -21,16 +21,15 @@ ____________________________________
 Creado por Parzibyte (https://parzibyte.me). Este encabezado debe mantenerse intacto,
 excepto si este es un proyecto de un estudiante.
 */
-package me.parzibyte.api;
+package me.parzibyte.dao;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class DemoApplication {
+import me.parzibyte.modelo.ProductoModel;
+import me.parzibyte.modelo.UsuarioModel;
+import org.springframework.data.repository.CrudRepository;
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+public interface ProductoRepository extends CrudRepository<ProductoModel, Integer> {
 
+    public abstract ProductoModel findByCategoria(Integer categoria);
+    public abstract ProductoModel findByPropietario(Integer propietario);
 }
